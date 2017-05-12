@@ -14,13 +14,11 @@ class ConditionCommunication {
         @JvmStatic
         fun main(args: Array<String>) {
             val business = Business()
-            Thread(Runnable {
-                run {
+            Thread{
                     (1..50).forEach {
                         business.sub(it)
                     }
-                }
-            }).start()
+                }.start()
             (1..50).forEach {
                 business.main(it)
             }

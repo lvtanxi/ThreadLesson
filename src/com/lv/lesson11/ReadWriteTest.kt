@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock
 /**
  * Date: 2017-05-12
  * Time: 16:05
- * Description:
+ * Description: 读写锁。分离读、写分开，这样效率更高
  */
 class ReadWriteTest {
     companion object{
