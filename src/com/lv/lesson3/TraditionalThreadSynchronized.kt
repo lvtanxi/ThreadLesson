@@ -27,7 +27,7 @@ class TraditionalThreadSynchronized {
     }
 
     /**
-     * 为方法添加同步锁
+     * 为方法添加同步锁,多方法的时候同步锁使用的对象是同一个
      */
     private class Outputer {
 
