@@ -15,15 +15,13 @@ class ThreadScopeShareData {
         @JvmStatic
         fun main(args: Array<String>) {
             for (index in 0..1) {
-                Thread(Runnable {
-                    run {
+                Thread{
                         data = Random().nextInt()
                         threadData.put(Thread.currentThread().name, data)
                         println("${Thread.currentThread().name} has put data :$data")
                         A().get()
                         B().get()
-                    }
-                }).start()
+                    }.start()
             }
         }
     }
