@@ -15,7 +15,7 @@ class ThreadPoolTest {
             //创建固定大小的线程池
             //val threadPool = Executors.newFixedThreadPool(3)
             //缓存线程，根据需要自动创建线程，对于60s没有用的线程要进行自动回收
-            //val threadPool = Executors.newCachedThreadPool()
+            //val threadPool = executors.newCachedThreadPool()
             //单一线程池，线程死掉会创建一个新的
             val threadPool = Executors.newSingleThreadExecutor()
             for (i in 0..4) {

@@ -19,7 +19,7 @@ class CountDountLathTest {
             for (index in 0..2){
                 threadPool.execute {
                     println("线程${Thread.currentThread().name}正准备接受命令")
-                    cdOrder.await()
+                    cdOrder.await() //等到主线程的cdOrder调用countDown()方法把数字变成0，才能走
                     println("线程${Thread.currentThread().name}已准备接受命令")
                     Thread.sleep((Math.random()*10000).toLong())
                     println("线程${Thread.currentThread().name}回应命令处理结果")

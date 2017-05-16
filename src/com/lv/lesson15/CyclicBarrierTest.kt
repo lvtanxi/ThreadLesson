@@ -18,7 +18,7 @@ class CyclicBarrierTest {
                 threadPool.execute {
                     Thread.sleep((Math.random()*10000).toLong())
                     println("线程${Thread.currentThread().name}即将到达集合地点1，当前已有${cb.numberWaiting}个人")
-                    cb.await()
+                    cb.await() //运行之前是没有顺序的，等3个线程都到了又继续走
                     Thread.sleep((Math.random()*10000).toLong())
                     println("线程${Thread.currentThread().name}即将到达集合地点2，当前已有${cb.numberWaiting}个人")
                     cb.await()

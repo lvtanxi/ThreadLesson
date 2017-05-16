@@ -17,7 +17,13 @@ class CacheDemo {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-
+            val cacheDemo = CacheDemo()
+            for (index in 0..2){
+                Thread{
+                    val data = cacheDemo.getData("test")
+                    println("${Thread.currentThread().name}获取的数据为$data")
+                }.start()
+            }
         }
     }
 
@@ -28,11 +34,13 @@ class CacheDemo {
             rwl.readLock().unlock()
             rwl.writeLock().lock()
             if (!cacheVild) {//是为了防止在后面写锁解除后重复写
+                println("${Thread.currentThread().name} 加载一次数据.....")
                 any = "aaaa" //这里可以设置成数据库查询
+                cache.put(key,any)
                 cacheVild = true
             }
-            rwl.writeLock().unlock()
             rwl.readLock().lock()
+            rwl.writeLock().unlock()
         }
         rwl.readLock().unlock()
         return any
