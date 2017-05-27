@@ -8,6 +8,7 @@ import java.util.concurrent.Executors
  * Time: 17:30
  * Description:  CountDountLath 犹如倒计时计数器，调用CountDowunLatch对象的countDown方法就将计数器减少1
  *                  ，当计数到达0时，则所有等待者或单个等待者开始执行。像运动会，一个项目要所有运动员完成了才会公布成绩
+ *                  CountDountLath与CyclicBarrier的区别是，CyclicBarrier可以重复使用
  */
 class CountDountLathTest {
     companion object{

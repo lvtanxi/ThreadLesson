@@ -28,17 +28,33 @@ class CallableAndFuture {
             //多个有返回值的线程
             val threadPool = Executors.newFixedThreadPool(10)
             val completionService = ExecutorCompletionService<String>(threadPool)
-            for (index in 0..9){
+            for (index in 0..9) {
                 completionService.submit {
-                    Thread.sleep((Math.random()*5000).toLong())
+                    Thread.sleep((Math.random() * 5000).toLong())
                     println(Thread.currentThread().name)
-                   return@submit "${Thread.currentThread().name} $index"
+                    return@submit "${Thread.currentThread().name} $index"
                 }
             }
-            for (index in 0..9){
-                println( completionService.take().get())
+            for (index in 0..9) {
+                println(completionService.take().get())
             }
             threadPool.shutdown()
+            //多个有返回值的线程
+            val threadPool2 = Executors.newFixedThreadPool(10)
+            val callables = HashSet<Callable<String>>()
+            callables.add(Callable {
+                return@Callable "task1"
+            })
+            callables.add(Callable {
+                return@Callable "task2"
+            })
+            callables.add(Callable {
+                return@Callable "task3"
+            })
+            for (future1 in threadPool2.invokeAll(callables)) {
+                println(future1.get())
+            }
+            threadPool2.shutdown()
         }
     }
 }

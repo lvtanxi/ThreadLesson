@@ -36,6 +36,7 @@ class BoundedBuffer {
     fun put(any: Any) {
         //添加数据的时候上锁
         lock.lock()
+        //利用while来避免死锁
         while (count == items.size) //判断如果count等于数组的长度了，标识满了，为了防止再添加数据，就让未满的Condition等待
             notFull.await()
         items[putPtr] = any
@@ -49,6 +50,7 @@ class BoundedBuffer {
     fun take(): Any? {
         //添加获取数据的锁
         lock.lock()
+        //利用while来避免死锁
         while (count==0) // 如果count为0的话，就表示没有数据，就需要让不为空的Condition等待
             notEmpty.await()
         val any=items[takePtr]

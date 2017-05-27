@@ -46,10 +46,13 @@
 > 主要是讲CountDountLath、CyclicBarrier与Exchanger
 
 #### lesson16
-> 主要是讲ArrayBlockingQueue阻塞队列
+> 主要是讲ArrayBlockingQueue阻塞队列(实现了生产者与消费者的形式)
 
 #### lesson17
 > 主要是讲volatile保证变量其他线程可见
 
+#### lesson18
+> 主要是讲检测线程是否有锁、利用join让线程顺序实现
+
 ## 尾声
->  线程的问题还有很多，比如：线程集合、获取多线程池的方式等等。
+>  线程的问题还有很多，比如：线程集合、获取多线程池的方式等等。[线程面试题](http://www.importnew.com/12773.html)

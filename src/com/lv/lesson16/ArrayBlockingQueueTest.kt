@@ -5,7 +5,7 @@ import java.util.concurrent.ArrayBlockingQueue
 /**
  * Date: 2017-05-12
  * Time: 09:06
- * Description: 阻塞队列，拿数据和放数据互斥。只有有数据才能拿，相反，只有有空位才能放
+ * Description: 阻塞队列，拿数据和放数据互斥。只有有数据才能拿，相反，只有有空位才能放(生产者与消费者模式)
  */
 
 class ArrayBlockingQueueTest{

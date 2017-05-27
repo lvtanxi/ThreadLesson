@@ -7,7 +7,7 @@ import java.util.concurrent.locks.ReentrantLock
  * Time: 16:07
  * Description: 可重入锁 ReentrantLock，实现方法互斥 。跟Synchronized用法差不多
  */
-class LockTest {
+class ReentrantLockTest {
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {

@@ -5,7 +5,7 @@ import java.util.concurrent.ArrayBlockingQueue
 /**
  * Date: 2017-05-12
  * Time: 09:36
- * Description:
+ * Description: 是这一个生产者和消费者的模式
  */
 class ArrayBlockingQueueTest2 {
     companion object{
